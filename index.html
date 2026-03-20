@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA Sem Segredos — O Guia que Vai Transformar Seu Negócio</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#C9A84C;--gold-l:#E8C97A;--gold-d:#8A6A28;--dk:#0D0D0F;--dk2:#141417;--dk3:#1C1C21;--dk4:#242429;--dk5:#2E2E35;--tx:#E8E8F0;--txd:#9999AA;--wh:#FFFFFF;--blu:#3B82F6;--grn:#22C55E;--red:#EF4444;--kiw:#00B452;--r:12px;--rl:20px}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--dk);color:var(--tx);font-size:16px;line-height:1.65;overflow-x:hidden}
+a{text-decoration:none}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em}
+.tb{background:var(--dk2);border-bottom:1px solid rgba(201,168,76,.15);padding:9px 0;text-align:center;font-size:12px;color:var(--gold-l);letter-spacing:.04em}
+.tb span{color:var(--txd)}
+nav{background:rgba(13,13,15,.95);border-bottom:1px solid rgba(255,255,255,.06);padding:0 clamp(1rem,4vw,3rem);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.nav-i{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:900;font-size:18px;color:var(--wh)}
+.logo span{color:var(--gold)}
+.nav-btn{background:var(--gold);color:var(--dk);font-weight:600;font-size:13px;padding:8px 20px;border-radius:8px;transition:.2s}
+.nav-btn:hover{background:var(--gold-l)}
+.hero{padding:clamp(3rem,8vh,6rem) clamp(1rem,4vw,3rem);background:var(--dk);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(201,168,76,.1),transparent 70%);pointer-events:none}
+.hero-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:center;position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:7px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:1.2rem}
+.badge-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+h1{font-size:clamp(2.2rem,4.5vw,3.5rem);color:var(--wh);font-weight:900;margin-bottom:1.2rem}
+.hl{color:var(--gold)}
+.hero-sub{font-size:1rem;color:var(--txd);max-width:500px;margin-bottom:2rem;line-height:1.75}
+.hero-sub strong{color:var(--tx);font-weight:500}
+.h-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2rem}
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--dk);font-weight:700;font-size:15px;padding:14px 28px;border-radius:10px;transition:.2s}
+.btn-p:hover{background:var(--gold-l);transform:translateY(-2px)}
+.btn-s{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--txd);font-size:14px;padding:14px 20px;border-radius:10px;border:1px solid rgba(255,255,255,.1);transition:.2s}
+.btn-s:hover{border-color:rgba(255,255,255,.25);color:var(--tx)}
+.trust{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--txd)}
+.ti{display:flex;align-items:center;gap:5px}
+.ti-ic{color:var(--grn)}
+.books-mock{position:relative;height:280px}
+.bk{position:absolute;width:170px;border-radius:4px 10px 10px 4px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:-6px 10px 30px rgba(0,0,0,.6)}
+.bk-main{background:linear-gradient(145deg,#1A3A6B,#0D2347);border:1px solid rgba(255,255,255,.08);right:0;bottom:0;height:220px;z-index:2;animation:flt 4s ease-in-out infinite}
+.bk-bonus{background:linear-gradient(145deg,#2A1F05,#1A1203);border:1px solid rgba(201,168,76,.2);right:36px;bottom:36px;height:190px;z-index:1;transform:rotate(-5deg)}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.bk-lbl{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);opacity:.8;margin-bottom:6px}
+.bk-ttl{font-size:13px;font-weight:800;color:var(--wh);line-height:1.25}
+.bk-bonus .bk-ttl{font-size:11px;color:var(--gold-l)}
+.bk-sub{font-size:8px;color:rgba(255,255,255,.35);letter-spacing:.06em;font-family:monospace}
+.bk-badge{position:absolute;top:-12px;right:-12px;background:var(--gold);color:var(--dk);font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:100px;z-index:10;box-shadow:0 4px 14px rgba(201,168,76,.4)}
+.div{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent)}
+.sp{padding:clamp(2.5rem,6vh,5rem) clamp(1rem,4vw,3rem)}
+.wrap{max-width:1100px;margin:0 auto}
+.sec-lbl{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+h2{font-size:clamp(1.7rem,3vw,2.4rem);color:var(--wh);font-weight:800;margin-bottom:1rem}
+h3{font-size:1rem;color:var(--wh);font-weight:700}
+.t-center{text-align:center}
+.sub-txt{color:var(--txd);font-size:.95rem;max-width:500px;margin:.7rem auto 0;line-height:1.7}
+.pain-bg{background:var(--dk2)}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.05);border-radius:var(--rl);overflow:hidden;margin-top:2rem}
+.pc{background:var(--dk3);padding:1.6rem;transition:.2s}
+.pc:hover{background:var(--dk4)}
+.pi{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:.8rem;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2)}
+.pc p{font-size:13px;color:var(--txd);line-height:1.6;margin-top:.4rem}
+.sol-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:2.5rem}
+.sc{background:var(--dk3);border:1px solid rgba(255,255,255,.06);border-radius:var(--rl);padding:1.6rem;position:relative;overflow:hidden;transition:.2s}
+.sc:hover{border-color:rgba(201,168,76,.25);transform:translateY(-3px)}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-l));opacity:0;transition:.2s}
+.sc:hover::before{opacity:1}
+.sn{font-family:monospace;font-size:10px;color:var(--gold-d);margin-bottom:.7rem;letter-spacing:.08em}
+.sc p{font-size:13px;color:var(--txd);margin-top:.4rem;line-height:1.6}
+.cl{list-style:none;margin-top:.8rem;display:flex;flex-direction:column;gap:5px}
+.cl li{font-size:12px;color:var(--txd);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
+.cl li::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0;margin-top:1px}
+.sc-bonus{border-color:rgba(201,168,76,.25)!important;background:linear-gradient(135deg,rgba(201,168,76,.05),var(--dk3))!important}
+.bks-bg{background:var(--dk2)}
+.bkg{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem}
+.bkc{border-radius:var(--rl);overflow:hidden;border:1px solid rgba(255,255,255,.07);transition:.2s}
+.bkc:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.bkch{padding:1.8rem}
+.bkch-main{background:linear-gradient(135deg,#0D2040,#1A3A6B)}
+.bkch-bonus{background:linear-gradient(135deg,#1A1203,#2A1F05)}
+.bkbadge{display:inline-block;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-bottom:.8rem}
+.bkbadge-m{background:rgba(59,130,246,.2);color:#93C5FD;border:1px solid rgba(59,130,246,.3)}
+.bkbadge-b{background:rgba(201,168,76,.15);color:var(--gold-l);border:1px solid rgba(201,168,76,.3)}
+.bkch h3{font-size:1.2rem;font-weight:800;color:var(--wh);margin-bottom:.4rem}
+.bkch p{font-size:12px;color:rgba(255,255,255,.45)}
+.bkcb{background:var(--dk3);padding:1.2rem 1.8rem}
+.chl{list-style:none;display:flex;flex-direction:column;gap:8px}
+.chl li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--txd);line-height:1.5}
+.cn{font-family:monospace;font-size:10px;color:var(--gold-d);flex-shrink:0;margin-top:2px}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.05);border-radius:var(--rl);overflow:hidden;margin-bottom:3rem}
+.ps{background:var(--dk3);padding:1.8rem;text-align:center}
+.psn{font-size:2rem;font-weight:900;color:var(--gold);display:block;line-height:1;margin-bottom:.3rem}
+.psl{font-size:12px;color:var(--txd)}
+.ps-highlight{background:var(--dk4)}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.tc{background:var(--dk3);border:1px solid rgba(255,255,255,.06);border-radius:var(--rl);padding:1.4rem 1.6rem;position:relative}
+.tc::before{content:'"';position:absolute;top:.8rem;right:1.2rem;font-size:3.5rem;color:rgba(201,168,76,.1);line-height:1}
+.stars{color:var(--gold);font-size:13px;margin-bottom:.7rem;letter-spacing:2px}
+.tt{font-size:14px;color:var(--txd);line-height:1.7;margin-bottom:1rem;font-style:italic}
+.ta{display:flex;align-items:center;gap:10px}
+.av{width:36px;height:36px;border-radius:50%;background:var(--dk5);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--gold)}
+.ai p:first-child{font-size:13px;font-weight:600;color:var(--tx)}
+.ai p:last-child{font-size:11px;color:var(--txd)}
+.xq-bg{background:var(--dk);position:relative;overflow:hidden}
+.xq-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(59,130,246,.04),transparent 70%)}
+.xqi{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.xqlogo{font-size:2.5rem;font-weight:900;color:var(--wh);letter-spacing:-.04em;line-height:1;margin-bottom:1.2rem}
+.xqlogo span{color:var(--blu)}
+.xqfs{display:flex;flex-direction:column;gap:.9rem;margin-top:1.6rem}
+.xqf{display:flex;gap:12px;align-items:flex-start}
+.xqfi{width:34px;height:34px;border-radius:9px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.xqf h4{font-size:13px;color:var(--tx);font-weight:600;margin-bottom:2px}
+.xqf p{font-size:12px;color:var(--txd);line-height:1.5}
+.xqv{background:var(--dk3);border:1px solid rgba(59,130,246,.15);border-radius:18px;padding:1.6rem;font-family:monospace}
+.xqvh{display:flex;align-items:center;gap:6px;margin-bottom:1.2rem;font-size:11px;color:var(--txd)}
+.dot{width:8px;height:8px;border-radius:50%}
+.dr{background:#FF5F57}.dy{background:#FEBC2E}.dg{background:#28C840}
+.chat{display:flex;flex-direction:column;gap:10px}
+.cm{border-radius:10px;padding:9px 12px;font-size:12px;line-height:1.55;max-width:85%}
+.cu{background:var(--dk5);color:var(--txd);align-self:flex-end}
+.ca{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.15);color:var(--tx);align-self:flex-start}
+.cty{display:flex;gap:4px;align-items:center;padding:10px 14px;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.1);border-radius:10px;width:fit-content}
+.td{width:6px;height:6px;border-radius:50%;background:var(--blu);animation:typ 1.4s infinite}
+.td:nth-child(2){animation-delay:.2s}.td:nth-child(3){animation-delay:.4s}
+@keyframes typ{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+.pr-bg{background:var(--dk2)}
+.cd-bar{background:linear-gradient(90deg,rgba(239,68,68,.12),rgba(239,68,68,.06));border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:560px;margin:0 auto 1.8rem;flex-wrap:wrap}
+.cd-lbl{font-size:12px;color:var(--red);font-weight:600;display:flex;align-items:center;gap:7px}
+.rd{width:7px;height:7px;background:var(--red);border-radius:50%;animation:pulse 1.5s infinite}
+.cd-t{display:flex;gap:7px;align-items:center}
+.tb2{background:var(--dk5);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:5px 10px;text-align:center;min-width:48px}
+.tn{font-family:monospace;font-size:18px;font-weight:600;color:var(--wh);display:block;line-height:1}
+.tu{font-size:9px;color:var(--txd);letter-spacing:.06em;text-transform:uppercase}
+.ts{font-size:18px;color:var(--txd);font-weight:300}
+.pcard{max-width:560px;margin:0 auto;background:var(--dk3);border:1px solid rgba(201,168,76,.25);border-radius:22px;overflow:hidden}
+.ppop{background:var(--gold);text-align:center;padding:9px;font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dk)}
+.pbody{padding:2rem}
+.price-block{margin-bottom:1.5rem}
+.price-old{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.price-old-val{font-size:1.1rem;color:var(--txd);text-decoration:line-through}
+.disc-badge{background:var(--red);color:var(--wh);font-size:11px;font-weight:800;padding:3px 10px;border-radius:100px;letter-spacing:.04em}
+.ptag{display:flex;align-items:baseline;gap:6px}
+.pc2{font-size:1.1rem;color:var(--gold);font-weight:600}
+.pa{font-size:3.5rem;font-weight:900;color:var(--wh);line-height:1}
+.pa-cents{font-size:1.6rem;font-weight:700;color:var(--wh);align-self:flex-start;margin-top:10px}
+.pp{font-size:13px;color:var(--txd);align-self:flex-end;padding-bottom:4px}
+.pinc{border-top:1px solid rgba(255,255,255,.06);padding-top:1.3rem;margin-bottom:1.8rem}
+.pinc h4{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--txd);margin-bottom:.8rem}
+.iitem{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:14px;color:var(--tx)}
+.iic{font-size:16px;flex-shrink:0}
+.idesc{font-size:11px;color:var(--txd);display:block;margin-top:2px}
+.bbuy{display:block;text-align:center;background:var(--gold);color:var(--dk);font-weight:800;font-size:16px;padding:16px;border-radius:10px;transition:.2s;margin-bottom:.8rem;letter-spacing:.02em;animation:bpulse 3s ease-in-out infinite}
+@keyframes bpulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,0)}50%{box-shadow:0 0 0 10px rgba(201,168,76,.15)}}
+.bbuy:hover{background:var(--gold-l);transform:translateY(-2px)}
+.gl{text-align:center;font-size:12px;color:var(--txd);display:flex;align-items:center;justify-content:center;gap:6px}
+.sec-bg{background:var(--dk2)}
+.segrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem;margin-top:2rem}
+.sei{background:var(--dk3);border:1px solid rgba(255,255,255,.05);border-radius:var(--r);padding:1.1rem 1.3rem;display:flex;align-items:flex-start;gap:10px}
+.seic{font-size:18px;flex-shrink:0;margin-top:2px}
+.sei h4{font-size:13px;color:var(--tx);margin-bottom:2px;font-weight:600}
+.sei p{font-size:11px;color:var(--txd);line-height:1.5}
+.kw-banner{max-width:560px;margin:2rem auto 0;background:var(--dk3);border:1px solid rgba(0,180,82,.25);border-radius:var(--rl);padding:1.4rem 1.8rem;display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
+.kw-img{height:28px;width:auto;flex-shrink:0}
+.kw-desc{font-size:12px;color:var(--txd);line-height:1.6;flex:1;min-width:180px}
+.kw-desc strong{color:var(--tx)}
+.sbadges{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:2rem;flex-wrap:wrap}
+.sbadge{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10px;color:var(--txd);letter-spacing:.06em;text-transform:uppercase}
+.sbic{width:44px;height:44px;border-radius:10px;background:var(--dk3);border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;font-size:20px}
+.sbic-kw{background:rgba(0,180,82,.1);border-color:rgba(0,180,82,.3);padding:0;overflow:hidden}
+.faq-bg{background:var(--dk)}
+.flist{max-width:680px;margin:2rem auto 0;display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.04);border-radius:var(--rl);overflow:hidden;border:1px solid rgba(255,255,255,.04)}
+.fi{background:var(--dk3)}
+.fq{width:100%;background:none;border:none;padding:1.1rem 1.3rem;text-align:left;color:var(--tx);font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:.2s}
+.fq:hover{color:var(--gold)}
+.fa2{font-size:17px;color:var(--txd);flex-shrink:0;transition:transform .25s}
+.fa{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 1.3rem;font-size:13px;color:var(--txd);line-height:1.7}
+.fi.open .fa2{transform:rotate(45deg);color:var(--gold)}
+.fi.open .fa{max-height:200px;padding-bottom:1.1rem}
+.fcta{background:var(--dk);text-align:center;position:relative;overflow:hidden}
+.fcta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(201,168,76,.08),transparent 70%)}
+.fcta .wrap{position:relative;z-index:1}
+.fcta h2{font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:.8rem}
+.fcta p{color:var(--txd);max-width:480px;margin:0 auto 2rem;font-size:.95rem}
+.ftrust{margin-top:1rem;display:flex;align-items:center;justify-content:center;gap:1.2rem;flex-wrap:wrap;font-size:12px;color:var(--txd)}
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--dk2);border-top:1px solid rgba(201,168,76,.2);padding:12px 1rem;z-index:200;backdrop-filter:blur(12px)}
+footer{background:var(--dk2);border-top:1px solid rgba(255,255,255,.05);padding:1.8rem clamp(1rem,4vw,3rem);text-align:center;font-size:12px;color:var(--txd)}
+footer a{color:var(--gold-d)}
+footer a:hover{color:var(--gold)}
+@media(max-width:800px){.hero-wrap,.xqi,.bkg{grid-template-columns:1fr}.books-mock{display:none}.pgrid{grid-template-columns:1fr 1fr}.sticky-cta{display:block}}
+@media(max-width:500px){.h-btns{flex-direction:column}.btn-p,.btn-s{width:100%;justify-content:center}.pgrid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="tb">&#128293; Oferta por tempo limitado &#8212; <span>Kit Completo com B&#244;nus Exclusivo</span></div>
+<nav><div class="nav-i"><div class="logo">IA<span>.</span>Empres&#225;rio</div><a href="#pricing" class="nav-btn">Quero o Kit &#8594;</a></div></nav>
+
+<section class="hero"><div class="hero-wrap">
+  <div>
+    <div class="badge"><span class="badge-dot"></span>Guia Pr&#225;tico + B&#244;nus Exclusivo</div>
+    <h1>Pare de perder tempo.<br>Comece a usar <span class="hl">IA de verdade</span><br>no seu neg&#243;cio.</h1>
+    <p class="hero-sub">O guia completo que vai mostrar ao pequeno empres&#225;rio como usar Intelig&#234;ncia Artificial para <strong>atender melhor, vender mais e organizar o que estava fora de controle</strong> &#8212; sem precisar entender de tecnologia.</p>
+    <div class="h-btns">
+      <a href="#pricing" class="btn-p">Quero o Kit Completo <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#contents" class="btn-s">Ver o que est&#225; inclu&#237;do</a>
+    </div>
+    <div class="trust">
+      <div class="ti"><span class="ti-ic">&#10003;</span> Download imediato</div>
+      <div class="ti"><span class="ti-ic">&#10003;</span> Pagamento seguro</div>
+      <div class="ti"><span class="ti-ic">&#10003;</span> Funciona no celular</div>
+    </div>
+  </div>
+  <div style="position:relative"><div class="books-mock">
+    <div class="bk bk-bonus"><div class="bk-lbl">Cap&#237;tulo B&#244;nus</div><div class="bk-ttl">IA na Realidade Financeira</div><div class="bk-sub">EXCLUSIVO</div></div>
+    <div class="bk bk-main"><div class="bk-badge">+ B&#244;nus Incluso</div><div><div class="bk-lbl">E-Book Principal</div><div class="bk-ttl">IA Sem Segredos para o Pequeno Empres&#225;rio</div></div><div class="bk-sub">GUIA PR&#193;TICO COMPLETO</div></div>
+  </div></div>
+</div></section>
+
+<div class="div"></div>
+<section class="sp pain-bg"><div class="wrap">
+  <div class="t-center" style="margin-bottom:2rem"><div class="sec-lbl">Voc&#234; est&#225; nessa situa&#231;&#227;o?</div><h2>Reconhece alguma dessas dores?</h2></div>
+  <div class="pain-grid">
+    <div class="pc"><div class="pi">&#9200;</div><h3>Sem tempo para nada</h3><p>Voc&#234; passa o dia apagando inc&#234;ndio, respondendo WhatsApp e no fim do expediente nada do que importava foi feito.</p></div>
+    <div class="pc"><div class="pi">&#128202;</div><h3>"Acho que o m&#234;s vai ser ruim"</h3><p>Voc&#234; gerencia pelo feeling. N&#227;o sabe prever quando as vendas v&#227;o cair e sempre &#233; pego de surpresa no caixa.</p></div>
+    <div class="pc"><div class="pi">&#9999;</div><h3>A folha em branco te paralisa</h3><p>Criar posts, responder clientes dif&#237;ceis, escrever uma proposta &#8212; tudo consome um tempo que voc&#234; simplesmente n&#227;o tem.</p></div>
+    <div class="pc"><div class="pi">&#129327;</div><h3>"Isso &#233; coisa pra empresa grande"</h3><p>Voc&#234; acha que IA &#233; complexo, caro e que n&#227;o foi feito pra voc&#234;. E continua em desvantagem enquanto a concorr&#234;ncia avan&#231;a.</p></div>
+  </div>
+</div></section>
+
+<div class="div"></div>
+<section class="sp" id="contents"><div class="wrap">
+  <div class="t-center" style="margin-bottom:2.5rem"><div class="sec-lbl">A solu&#231;&#227;o est&#225; aqui</div><h2>Tudo que voc&#234; precisa para come&#231;ar<br>a usar IA hoje mesmo</h2><p class="sub-txt">Sem termos t&#233;cnicos. Sem precisar entender de programa&#231;&#227;o. Passo a passo, com prompts prontos para copiar e colar.</p></div>
+  <div class="sol-grid">
+    <div class="sc"><div class="sn">01 &#8212; ATENDIMENTO</div><h3>WhatsApp no Piloto Autom&#225;tico</h3><p>Responda clientes dif&#237;ceis em segundos, crie scripts que parecem humanos e monte uma FAQ que responde por voc&#234;.</p><ul class="cl"><li>Scripts de atendimento prontos para usar</li><li>Como responder reclama&#231;&#245;es com empatia</li><li>FAQ autom&#225;tica com dados do seu neg&#243;cio</li></ul></div>
+    <div class="sc"><div class="sn">02 &#8212; MARKETING</div><h3>Conte&#250;do em Minutos, N&#227;o em Horas</h3><p>30 ideias de post em 2 minutos, legendas com gatilhos mentais e imagens profissionais sem saber usar Photoshop.</p><ul class="cl"><li>Calend&#225;rio de conte&#250;do do Instagram</li><li>Legendas que convertem (com gatilhos)</li><li>Imagens profissionais sem designer</li></ul></div>
+    <div class="sc"><div class="sn">03 &#8212; GEST&#195;O</div><h3>Organize o que estava fora de controle</h3><p>Resuma reuni&#245;es e &#225;udios longos em 3 pontos, analise seus gastos e planeje a semana de forma inteligente.</p><ul class="cl"><li>Resumo de reuni&#245;es e &#225;udios do WhatsApp</li><li>An&#225;lise de gastos com sugest&#245;es de corte</li><li>Planejamento semanal automatizado</li></ul></div>
+    <div class="sc"><div class="sn">04 &#8212; PROMPTS</div><h3>A Arte de Conversar com a M&#225;quina</h3><p>O m&#233;todo "Quem, O Qu&#234; e Como" para extrair o melhor da IA &#8212; e dezenas de prompts prontos para copiar e colar.</p><ul class="cl"><li>M&#233;todo pr&#225;tico para criar prompts perfeitos</li><li>Comandos prontos para atendimento e vendas</li><li>Como refinar resultados quando a IA erra</li></ul></div>
+    <div class="sc"><div class="sn">05 &#8212; FERRAMENTAS</div><h3>O Kit de Sobreviv&#234;ncia do Empres&#225;rio</h3><p>ChatGPT, Gemini, Canva, Leonardo.ai e mais &#8212; o que usar, como usar e por onde come&#231;ar sem se perder.</p><ul class="cl"><li>Comparativo das melhores ferramentas gratuitas</li><li>Plano de ado&#231;&#227;o semana a semana</li><li>Quais ferramentas ignorar (por ora)</li></ul></div>
+    <div class="sc sc-bonus"><div class="sn" style="color:var(--gold)">&#127775; B&#212;NUS EXCLUSIVO</div><h3 style="color:var(--gold)">IA na Realidade Financeira</h3><p>Transforme a IA no seu CFO. Preveja meses de baixa, crie promo&#231;&#245;es de antecipa&#231;&#227;o e tome decis&#245;es baseadas em dados.</p><ul class="cl"><li>Como prever sazonalidade oculta do neg&#243;cio</li><li>Promo&#231;&#245;es de antecipa&#231;&#227;o antes da queda</li><li>O Prompt Mestre para an&#225;lise financeira</li></ul></div>
+  </div>
+</div></section>
+
+<div class="div"></div>
+<section class="sp bks-bg"><div class="wrap">
+  <div class="t-center"><div class="sec-lbl">Conte&#250;do dos E-Books</div><h2>Dois guias. Uma transforma&#231;&#227;o completa.</h2></div>
+  <div class="bkg">
+    <div class="bkc"><div class="bkch bkch-main"><span class="bkbadge bkbadge-m">E-Book Principal</span><h3>IA Sem Segredos para o Pequeno Empres&#225;rio</h3><p>6 cap&#237;tulos &#8226; Prompts prontos &#8226; Fluxogramas e diagramas visuais</p></div><div class="bkcb"><ul class="chl"><li><span class="cn">Cap. 1</span>Introdu&#231;&#227;o: O Novo &#8220;Funcion&#225;rio Nota 10&#8221;</li><li><span class="cn">Cap. 2</span>Atendimento ao Cliente: O WhatsApp que N&#227;o Para</li><li><span class="cn">Cap. 3</span>Marketing e Vendas: Criando Conte&#250;do em Minutos</li><li><span class="cn">Cap. 4</span>Gest&#227;o e Organiza&#231;&#227;o: Organizando a Casa</li><li><span class="cn">Cap. 5</span>A Arte de Conversar com a M&#225;quina (Prompts)</li><li><span class="cn">Cap. 6</span>Ferramentas Essenciais: O Kit de Sobreviv&#234;ncia</li></ul></div></div>
+    <div class="bkc"><div class="bkch bkch-bonus"><span class="bkbadge bkbadge-b">&#127775; Cap&#237;tulo B&#244;nus</span><h3>IA na Realidade Financeira</h3><p>5 se&#231;&#245;es &#8226; Exerc&#237;cio pr&#225;tico &#8226; Prompts de an&#225;lise financeira</p></div><div class="bkcb"><ul class="chl"><li><span class="cn" style="color:var(--gold-d)">Sec. 1</span>O Fim do &#8220;Acho que o m&#234;s vai ser ruim&#8221;</li><li><span class="cn" style="color:var(--gold-d)">Sec. 2</span>Identificando a Sazonalidade Oculta</li><li><span class="cn" style="color:var(--gold-d)">Sec. 3</span>Criando a Promo&#231;&#227;o de Antecipa&#231;&#227;o</li><li><span class="cn" style="color:var(--gold-d)">Sec. 4</span>O Prompt Mestre para An&#225;lise de Dados</li><li><span class="cn" style="color:var(--gold-d)">Sec. 5</span>O que a IA &#8220;Enxerga&#8221; por Voc&#234;</li><li><span class="cn" style="color:var(--gold-d)">Exerc.</span>Coloque em A&#231;&#227;o Agora &#8212; Passo a Passo</li></ul></div></div>
+  </div>
+</div></section>
+
+<div class="div"></div>
+<section class="sp"><div class="wrap">
+  <div class="t-center" style="margin-bottom:2rem"><div class="sec-lbl">Resultados reais</div><h2>O que muda quando voc&#234; come&#231;a a usar IA</h2></div>
+  <div class="pgrid">
+    <div class="ps"><span class="psn">3h</span><span class="psl">economizadas por dia em m&#233;dia</span></div>
+    <div class="ps"><span class="psn">5min</span><span class="psl">para criar uma semana de conte&#250;do</span></div>
+    <div class="ps"><span class="psn">R$0</span><span class="psl">custo das ferramentas essenciais</span></div>
+    <div class="ps ps-highlight"><span class="psn">7 dias</span><span class="psl">para sentir a diferen&#231;a no neg&#243;cio</span></div>
+  </div>
+  <div class="tgrid">
+    <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tt">Eu achei que nunca ia conseguir usar IA. No terceiro dia j&#225; estava usando o ChatGPT para responder clientes e criando post do nada. Economizei pelo menos 2 horas por dia.</p><div class="ta"><div class="av">MF</div><div class="ai"><p>Mariana Freitas</p><p>Propriet&#225;ria de sal&#227;o de beleza</p></div></div></div>
+    <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tt">O cap&#237;tulo b&#244;nus de finan&#231;as me abriu os olhos. Identifiquei que julho sempre &#233; meu m&#234;s fraco e criei uma campanha em junho. Bateu a meta pela primeira vez em 2 anos.</p><div class="ta"><div class="av">RT</div><div class="ai"><p>Ricardo Teixeira</p><p>Propriet&#225;rio de loja de roupas</p></div></div></div>
+    <div class="tc"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tt">Pensava que precisava contratar um social media. Com esse guia, fa&#231;o tudo sozinho em 20 minutos por dia. O engajamento triplicou.</p><div class="ta"><div class="av">CA</div><div class="ai"><p>Carla Andrade</p><p>Consultora de est&#233;tica</p></div></div></div>
+  </div>
+</div></section>
+
+<div class="div"></div>
+<section class="sp xq-bg"><div class="wrap"><div class="xqi">
+  <div>
+    <div class="sec-lbl">Powered by</div>
+    <div class="xqlogo">X<span>quads</span></div>
+    <p style="color:var(--txd);font-size:14px;line-height:1.75;max-width:400px">Os Agentes de IA da <strong style="color:var(--tx)">Xquads</strong> s&#227;o especialistas em transformar pequenos e m&#233;dios neg&#243;cios com intelig&#234;ncia artificial aplicada &#8212; sem complexidade, sem jarg&#227;o t&#233;cnico, com resultado real.</p>
+    <div class="xqfs">
+      <div class="xqf"><div class="xqfi">&#129302;</div><div><h4>Agentes especializados por &#225;rea</h4><p>Atendimento, marketing, finan&#231;as &#8212; cada agente treinado para o seu contexto de neg&#243;cio.</p></div></div>
+      <div class="xqf"><div class="xqfi">&#9889;</div><div><h4>Resultados em horas, n&#227;o meses</h4><p>Implementa&#231;&#227;o r&#225;pida. Voc&#234; come&#231;a a ver resultado j&#225; na primeira semana de uso.</p></div></div>
+      <div class="xqf"><div class="xqfi">&#128274;</div><div><h4>Seguran&#231;a e privacidade garantidas</h4><p>Seus dados e os dos seus clientes s&#227;o tratados com m&#225;ximo cuidado e conformidade.</p></div></div>
+    </div>
+  </div>
+  <div><div class="xqv">
+    <div class="xqvh"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span style="margin-left:4px">Xquads &#8212; Agente de Atendimento</span></div>
+    <div class="chat">
+      <div class="cm cu">Preciso de uma resposta para um cliente que reclamou do atraso na entrega</div>
+      <div class="cm ca">Claro! Aqui est&#225; uma resposta emp&#225;tica:<br><br><em style="color:var(--gold-l)">"Ol&#225;, [Nome]! Pe&#231;o desculpas pelo inconveniente. J&#225; estou verificando o status e retorno em at&#233; 2 horas com uma solu&#231;&#227;o. Obrigado pela paci&#234;ncia! &#128591;"</em></div>
+      <div class="cm cu">Perfeito! Pode criar mais 3 varia&#231;&#245;es?</div>
+      <div class="cty"><div class="td"></div><div class="td"></div><div class="td"></div></div>
+    </div>
+  </div></div>
+</div></div></section>
+
+<div class="div"></div>
+<section class="sp pr-bg" id="pricing"><div class="wrap">
+  <div class="t-center" style="margin-bottom:2rem"><div class="sec-lbl">Oferta especial</div><h2>Kit Completo com B&#244;nus Exclusivo</h2><p class="sub-txt">Uma &#250;nica compra. Acesso imediato a tudo. Sem assinatura, sem mensalidade.</p></div>
+  <div class="cd-bar">
+    <div class="cd-lbl"><span class="rd"></span>Oferta encerra em:</div>
+    <div class="cd-t">
+      <div class="tb2"><span class="tn" id="hours">11</span><span class="tu">horas</span></div><span class="ts">:</span>
+      <div class="tb2"><span class="tn" id="minutes">47</span><span class="tu">min</span></div><span class="ts">:</span>
+      <div class="tb2"><span class="tn" id="seconds">33</span><span class="tu">seg</span></div>
+    </div>
+  </div>
+  <div class="pcard">
+    <div class="ppop">&#128293; Mais Completo &#8212; Melhor Custo-Benef&#237;cio</div>
+    <div class="pbody">
+      <div class="price-block">
+        <div class="price-old"><span class="price-old-val">De R$ 99,90</span><span class="disc-badge">80% OFF</span></div>
+        <div class="ptag"><span class="pc2">R$</span><span class="pa">19</span><span class="pa-cents">,90</span><span class="pp">pagamento &#250;nico</span></div>
+      </div>
+      <div class="pinc">
+        <h4>O que est&#225; inclu&#237;do</h4>
+        <div class="iitem"><span class="iic">&#128216;</span><div><strong>E-Book Principal &#8212; IA Sem Segredos</strong><span class="idesc">6 cap&#237;tulos completos com prompts, fluxogramas e passo a passo</span></div></div>
+        <div class="iitem"><span class="iic">&#127775;</span><div><strong>Cap&#237;tulo B&#244;nus &#8212; IA na Realidade Financeira</strong><span class="idesc">Como prever meses fracos e criar promo&#231;&#245;es inteligentes</span></div></div>
+        <div class="iitem"><span class="iic">&#128203;</span><div><strong>Biblioteca de Prompts Prontos</strong><span class="idesc">Mais de 30 prompts testados para copiar e usar agora</span></div></div>
+        <div class="iitem"><span class="iic">&#128260;</span><div><strong>Atualiza&#231;&#245;es gratuitas para sempre</strong><span class="idesc">Novas ferramentas e estrat&#233;gias adicionadas sem custo extra</span></div></div>
+      </div>
+      <a href="#payment" class="bbuy">Quero o Kit Completo por R$19,90 &#8594;</a>
+      <div class="gl"><span>&#128274;</span> Pagamento 100% seguro via <img id="kw-btn" src="" alt="Kiwify" style="height:16px;vertical-align:middle;opacity:.85"></div>
+    </div>
+  </div>
+</div></section>
+
+<div class="div"></div>
+<section class="sp sec-bg"><div class="wrap">
+  <div class="t-center"><div class="sec-lbl">Sua seguran&#231;a &#233; prioridade</div><h2>Compra 100% segura e protegida</h2></div>
+  <div class="segrid">
+    <div class="sei"><span class="seic">&#128272;</span><div><h4>Criptografia SSL</h4><p>Todos os dados trafegam com criptografia de ponta a ponta &#8212; o mesmo padr&#227;o dos maiores bancos do Brasil.</p></div></div>
+    <div class="sei"><span class="seic">&#128154;</span><div><h4>Checkout seguro pela Kiwify</h4><p>A Kiwify &#233; uma das maiores plataformas de infoprodutos do Brasil, com total seguran&#231;a nas transa&#231;&#245;es.</p></div></div>
+    <div class="sei"><span class="seic">&#128179;</span><div><h4>PIX, cart&#227;o ou boleto</h4><p>Pague do jeito que preferir &#8212; PIX com aprova&#231;&#227;o instant&#226;nea, cart&#227;o parcelado ou boleto banc&#225;rio.</p></div></div>
+    <div class="sei"><span class="seic">&#9889;</span><div><h4>Acesso imediato</h4><p>Pagamento confirmado, link de download no seu e-mail em menos de 5 minutos. Sem esperar.</p></div></div>
+  </div>
+  <div class="kw-banner"><img id="kw-banner" src="" alt="Kiwify" class="kw-img"><div class="kw-desc"><strong>Plataforma oficial de pagamento.</strong> A Kiwify processa seu pagamento com seguran&#231;a total, emite nota fiscal automaticamente e garante a entrega do produto digital.</div></div>
+  <div class="sbadges">
+    <div class="sbadge"><div class="sbic">&#128274;</div>SSL Seguro</div>
+    <div class="sbadge"><div class="sbic sbic-kw"><img id="kw-badge" src="" alt="Kiwify" style="width:100%;height:100%;object-fit:contain;padding:7px"></div>Kiwify</div>
+    <div class="sbadge"><div class="sbic">&#128179;</div>PIX / Cart&#227;o</div>
+    <div class="sbadge"><div class="sbic">&#9889;</div>Entrega Digital</div>
+    <div class="sbadge"><div class="sbic">&#128260;</div>Sem Assinatura</div>
+  </div>
+</div></section>
+
+<div class="div"></div>
+<section class="sp faq-bg"><div class="wrap">
+  <div class="t-center"><div class="sec-lbl">Ainda com d&#250;vidas?</div><h2>Perguntas frequentes</h2></div>
+  <div class="flist">
+    <div class="fi"><button class="fq">Preciso entender de tecnologia para usar o guia?<span class="fa2">+</span></button><div class="fa">N&#227;o. O guia foi criado especificamente para quem n&#227;o tem nenhuma experi&#234;ncia com tecnologia. Todos os passos s&#227;o explicados de forma simples, com compara&#231;&#245;es do dia a dia e prompts prontos para copiar e colar.</div></div>
+    <div class="fi"><button class="fq">As ferramentas que aparecem no guia s&#227;o pagas?<span class="fa2">+</span></button><div class="fa">A maioria das ferramentas indicadas tem vers&#227;o gratuita e robusta o suficiente para come&#231;ar. O guia prioriza o que &#233; gratuito e s&#243; indica vers&#245;es pagas quando realmente faz diferen&#231;a para o resultado.</div></div>
+    <div class="fi"><button class="fq">Quanto tempo leva para ver resultados?<span class="fa2">+</span></button><div class="fa">Muitos leitores relatam resultados j&#225; na primeira semana &#8212; especialmente em atendimento e cria&#231;&#227;o de conte&#250;do. O plano de ado&#231;&#227;o inclu&#237;do no guia &#233; progressivo: voc&#234; come&#231;a pequeno e vai adicionando uma ferramenta por semana.</div></div>
+    <div class="fi"><button class="fq">O guia funciona para qualquer segmento de neg&#243;cio?<span class="fa2">+</span></button><div class="fa">Sim. Os princ&#237;pios e as t&#233;cnicas apresentadas se aplicam a qualquer tipo de neg&#243;cio &#8212; sal&#227;o de beleza, loja de roupas, consultoria, restaurante, imobili&#225;ria, servi&#231;os em geral. Os prompts s&#227;o adapt&#225;veis ao seu nicho.</div></div>
+    <div class="fi"><button class="fq">Como recebo o e-book ap&#243;s a compra?<span class="fa2">+</span></button><div class="fa">Imediatamente ap&#243;s a confirma&#231;&#227;o do pagamento pela Kiwify, voc&#234; recebe um e-mail com o link para download dos arquivos. O acesso &#233; vitalício &#8212; voc&#234; poder&#225; baixar quantas vezes quiser.</div></div>
+  </div>
+</div></section>
+
+<div class="div"></div>
+<section class="sp fcta"><div class="wrap">
+  <div class="sec-lbl t-center">&#218;ltima chance</div>
+  <h2>Seus concorrentes<br>j&#225; est&#227;o usando IA.</h2>
+  <p>Cada dia sem usar IA &#233; um dia que voc&#234; perde tempo e dinheiro para quem j&#225; descobriu. A diferen&#231;a entre os dois &#233; exatamente esse guia.</p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+    <a href="#payment" class="btn-p" style="font-size:16px;padding:16px 36px">Quero o Kit Completo por R$19,90 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <div class="ftrust"><span>&#128274; Pagamento seguro via Kiwify</span><span>&#9889; Download imediato</span></div>
+</div></section>
+
+<footer>
+  <p style="margin-bottom:6px"><a href="#">Pol&#237;tica de Privacidade</a> &nbsp;&middot;&nbsp; <a href="#">Termos de Uso</a></p>
+  <p style="font-size:11px">&#169; 2026 IA.Empres&#225;rio &middot; Powered by <strong style="color:var(--blu)">Xquads</strong> &middot; Todos os direitos reservados.</p>
+</footer>
+
+<div class="sticky-cta">
+  <a href="#pricing" class="bbuy" style="animation:none;margin-bottom:0;border-radius:8px;font-size:14px;padding:13px">Kit Completo por R$19,90 &#8212; 80% OFF &#8594;</a>
+</div>
+
+<script>
+var KW="data:image/jpeg;base64,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";
+['kw-btn','kw-banner','kw-badge'].forEach(function(id){var el=document.getElementById(id);if(el)el.src=KW;});
+function startCountdown(){
+  var k='xq_lp_v2';var end;
+  try{var s=localStorage.getItem(k);end=s?parseInt(s):null;}catch(e){}
+  if(!end){end=Date.now()+(11*3600+47*60+33)*1000;try{localStorage.setItem(k,end);}catch(e){}}
+  function tick(){
+    var d=end-Date.now();
+    if(d<=0){['hours','minutes','seconds'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent='00';});return;}
+    var h=Math.floor(d/3600000),m=Math.floor((d%3600000)/60000),s=Math.floor((d%60000)/1000);
+    var he=document.getElementById('hours'),me=document.getElementById('minutes'),se=document.getElementById('seconds');
+    if(he)he.textContent=String(h).padStart(2,'0');
+    if(me)me.textContent=String(m).padStart(2,'0');
+    if(se)se.textContent=String(s).padStart(2,'0');
+    setTimeout(tick,1000);
+  }
+  tick();
+}
+startCountdown();
+document.querySelectorAll('.fq').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var item=btn.parentElement,isOpen=item.classList.contains('open');
+    document.querySelectorAll('.fi').forEach(function(i){i.classList.remove('open');});
+    if(!isOpen)item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
